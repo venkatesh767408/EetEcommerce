@@ -1,46 +1,88 @@
+// import React, { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+
+// const ProductDetails = () => {
+//   //   const { id } = useParams();
+//   const id = 1;
+//   const [product, setProduct] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     console.log("Fetching product with ID:", id);
+//     axios
+//       .get(`https://fakestoreapi.com/products/${id}`)
+//       .then((res) => {
+//         console.log("Full Response:", res);
+//         setProduct(res.data);
+//         setLoading(false);
+//       })
+//       .catch((err) => {
+//         console.error("API Error:", err.message);
+//         setLoading(false);
+//       });
+//   }, [id]);
+
+//   if (loading) return <p>Loading ProductDetails...</p>;
+//   if (!product) return <p>Product data not found 🤷‍♂️</p>;
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h1>{product.title}</h1>
+//       <img src={product.image} alt={product.title} width="300" />
+//       <h3>Price: ${product.price}</h3>
+//       <p>{product.description}</p>
+//       <p>
+//         <strong>Category:</strong> {product.category}
+//       </p>
+//     </div>
+//   );
+// };
+
+// export default ProductDetails;
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// axios
 import axios from "axios";
 
 const ProductDetails = () => {
-  // useParams
-  const { id } = useParams();
-  // products
-  const [products, setProducts] = useState(null);
+  const id = 1; // 🔥 Hardcoded random ID for testing
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  // useEffect()
+  const [error, setError] = useState(null); // 👈 Add error state
 
   useEffect(() => {
+    console.log("Fetching product with ID:", id);
+
     axios
-      .get(`https://fakestoreapi.in/api/products/${id}`)
+      .get(`https://fakestoreapi.com/products/${id}`)
       .then((res) => {
-        setProducts(res.data);
+        console.log("Full API Response:", res); // 👈 Log full response
+        if (res.status === 200) {
+          setProduct(res.data);
+        } else {
+          console.error("Non-200 response:", res.status);
+          setError(`Error: ${res.status}`);
+        }
         setLoading(false);
-        console.log('products',res)
       })
       .catch((err) => {
-        console.log(err.message);
+        console.error("API Error:", err.message);
+        setError(err.message);
         setLoading(false);
       });
   }, [id]);
 
-  if (loading) {
-    return <p>laoding Here ProductDetails....</p>;
-  }
-  if (!products) {
-    return <p>Product data is not Found🤷‍♂️</p>;
-  }
+  if (loading) return <p>Loading ProductDetails...</p>;
+  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+  if (!product) return <p>Product data not found 🤷‍♂️</p>;
+
   return (
-    
     <div style={{ padding: "20px" }}>
-        {console.log('products',products)}
-      <h1>{products.title}</h1>
-      <img src={products.image} alt={products.title} width="300" />
-      <h3>Price: ${products.price}</h3>
-      <p>{products.description}</p>
+      <h1>{product.title}</h1>
+      <img src={product.image} alt={product.title} width="300" />
+      <h3>Price: ${product.price}</h3>
+      <p>{product.description}</p>
       <p>
-        <strong>Category:</strong> {products.category}
+        <strong>Category:</strong> {product.category}
       </p>
     </div>
   );
