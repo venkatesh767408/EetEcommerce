@@ -1,0 +1,35 @@
+.best-offers {
+  padding: 2rem;
+  background: #f5f5f7;
+  text-align: center;
+}
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.heading span {
+  color: #5b6df0;
+}
+.subheading {
+  color: #777;
+  margin-bottom: 2rem;
+}
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  gap: 2rem;
+  justify-items: center;
+}
+@media (max-width: 992px) {
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+}
