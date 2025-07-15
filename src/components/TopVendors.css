@@ -1,0 +1,238 @@
+.top-vendors {
+  display: flex;
+  gap: 50px;
+  padding: 60px 80px;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background: #fff;
+}
+
+.top-vendors-left {
+  position: relative;
+  flex: 1;
+  max-width: 700px;
+}
+
+.top-vendors-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+}
+.top-vendors {
+  display: flex;
+  gap: 50px;
+  padding: 60px 80px;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background: #fff;
+}
+
+.top-vendors-left {
+  position: relative;
+  flex: 1;
+  max-width: 700px;
+}
+
+.top-vendors-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.corner-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+}
+
+.top-vendors-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.top-vendors-right h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.highlight {
+  color: #6366f1;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.vendor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vendor-card {
+  background: #f9fafb;
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.vendor-card.active {
+  border-color: #6366f1;
+  background-color: #f3f4f6;
+}
+
+.vendor-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+}
+
+.vendor-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+.sales {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 1024px) {
+  .top-vendors {
+    padding: 40px 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .top-vendors-left,
+  .top-vendors-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .top-vendors-right h2 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .vendor-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .sales {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-vendors {
+    padding: 30px 20px;
+  }
+
+  .vendor-card {
+    padding: 15px;
+  }
+
+  .vendor-card h4 {
+    font-size: 15px;
+  }
+
+  .vendor-card p {
+    font-size: 13px;
+  }
+
+  .sales {
+    font-size: 13px;
+  }
+}
+
+.corner-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+}
+
+.top-vendors-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.top-vendors-right h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.highlight {
+  color: #6366f1;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.vendor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vendor-card {
+  background: #f9fafb;
+  padding: 20px 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.vendor-card.active {
+  border-color: #6366f1;
+  background-color: #f3f4f6;
+}
+
+.vendor-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #1f2937;
+}
+
+.vendor-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 4px 0 0;
+}
+
+.sales {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+}
