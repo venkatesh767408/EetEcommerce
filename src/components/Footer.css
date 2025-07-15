@@ -1,0 +1,121 @@
+.footer {
+  background: #f9f9f9;
+  padding: 40px 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.brands-directory {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.brands-directory strong {
+  color: #111827;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-left {
+  max-width: 300px;
+}
+
+.footer-left img {
+  width: 140px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+.footer-left p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.app-buttons img {
+  width: 120px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  min-width: 140px;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #111827;
+}
+
+.footer-col p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+.footer-col p:hover {
+  color: #6366f1;
+}
+
+.footer-col svg {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.social-icons svg {
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.social-icons svg:hover {
+  color: #6366f1;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+  .brands-directory {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+  }
+
+  .app-buttons img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    padding: 40px 20px;
+  }
+}
