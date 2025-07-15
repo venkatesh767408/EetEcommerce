@@ -1,0 +1,129 @@
+.cart-sidebar {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 420px;
+  max-width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.12);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  overflow: hidden;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8fafc;
+}
+
+.cart-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.totals {
+  padding: 20px 24px;
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.line.total {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.checkout-btn,
+.view-cart-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: background 0.3s ease;
+}
+
+.checkout-btn {
+  background: #1e293b;
+}
+
+.view-cart-btn {
+  background: #64748b;
+}
+
+.related-section {
+  padding: 20px 24px;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f9fafb;
+}
+
+.related-section h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+.related-items {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+}
+
+.related-items::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .cart-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .checkout-btn,
+  .view-cart-btn {
+    font-size: 0.95rem;
+  }
+}
