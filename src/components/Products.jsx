@@ -8,7 +8,7 @@ const Products = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
 
-    const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
+    const categories = ['gaming', 'audio', "mobile"];
     const brands = ['sony', 'microsoft', 'logitech g', 'song', 'urbanista', 'xiaomi', 'boat', 'samsung', 'amkette'];
 
     const productsWithBrands = products.map((product, index) => ({
