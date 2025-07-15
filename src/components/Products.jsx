@@ -120,7 +120,7 @@ const Products = () => {
                         key={product.id}
                         className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
                     >
-                        <Link to={`/products/product/${product.id}`} className="block text-white no-underline">
+                        <Link to={`/products/${product.id}`} className="block text-white no-underline">
                             {product.image && (
                                 <img
                                     src={product.image}
