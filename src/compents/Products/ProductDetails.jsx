@@ -49,11 +49,11 @@ const ProductDetails = () => {
     <div className="max-w-5xl mx-auto px-6 py-10">
       <div className="flex flex-col md:flex-row gap-10 items-start">
         {/* Left: Product Image */}
-        <div className="md:w-1/2 flex justify-center border border-gray-300 rounded-[2%] bt-10 mt-10 shadow-lg w-100 h-100">
+        <div className="md:w-1/2 flex justify-center border border-gray-300 rounded-[10%] bt-10 mt-2 w-100 h-130">
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-full object-contain rounded-[40%]"
+            className="w-full h-full object-contain rounded-[40%] "
           />
         </div>
 
@@ -86,7 +86,6 @@ const ProductDetails = () => {
           </p>
           <p>Discount: {product.discount || 0}%</p>
 
-          {/* Buttons */}
           {/* Buttons */}
           <div className="flex gap-4 mt-6">
             <button
