@@ -8,7 +8,7 @@ const Products = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
 
-    const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
+    const categories = ['gaming', 'audio', "mobile"];
     const brands = ['sony', 'microsoft', 'logitech g', 'song', 'urbanista', 'xiaomi', 'boat', 'samsung', 'amkette'];
 
     const productsWithBrands = products.map((product, index) => ({
@@ -120,7 +120,7 @@ const Products = () => {
                         key={product.id}
                         className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
                     >
-                        <Link to={`/products/product/${product.id}`} className="block text-white no-underline">
+                        <Link to={`/products/${product.id}`} className="block text-white no-underline">
                             {product.image && (
                                 <img
                                     src={product.image}
