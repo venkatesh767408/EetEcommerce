@@ -77,8 +77,8 @@ export const AppProvider = ({ children }) => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("https://fakestoreapi.com/products");
-        setProducts(res.data);
+        const res = await axios.get("https://fakestoreapi.in/api/products");
+        setProducts(res.data.products);
       } catch (err) {
         console.error("Failed to fetch products", err);
         setError("Failed to fetch products");
