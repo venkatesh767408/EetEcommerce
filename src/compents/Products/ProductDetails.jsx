@@ -10,12 +10,14 @@ const ProductDetails = () => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   // useEffect()
+
   useEffect(() => {
     axios
       .get(`https://fakestoreapi.in/api/products/${id}`)
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
+        console.log('products',res)
       })
       .catch((err) => {
         console.log(err.message);
@@ -30,7 +32,9 @@ const ProductDetails = () => {
     return <p>Product data is not Found🤷‍♂️</p>;
   }
   return (
+    
     <div style={{ padding: "20px" }}>
+        {console.log('products',products)}
       <h1>{products.title}</h1>
       <img src={products.image} alt={products.title} width="300" />
       <h3>Price: ${products.price}</h3>
