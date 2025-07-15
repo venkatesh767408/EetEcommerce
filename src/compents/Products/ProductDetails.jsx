@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useAppContext } from "../../contexts/AppContext";
 
 const ProductDetails = () => {
-  // const { id } = useParams();
-  const id = 1; // 🔥 Hardcoded ID
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const { products, loading, error } = useAppContext();
+  const product = products.find(p=>p.id === parseInt(id))
 
-  useEffect(() => {
-    console.log("Fetching product with ID:", id); // ✅ log id
-
-    axios
-      .get(`https://fakestoreapi.com/products/${id}`) // ✅ use .com not .in
-      .then((res) => {
-        console.log("API Response:", res); // ✅ log full response
-        setProduct(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("API Error:", err); // ✅ log error
-        setLoading(false);
-      });
-  }, [id]); // ✅ dependency
-
-  if (loading) return <p>Loading ProductDetails...</p>;
-  if (!product) return <p>Product data not found 🤷‍♂️</p>;
+  if (loading) return <p>Loading product details...</p>;
+  if (error) return <p>{error}</p>;
+  if (!product) return <p>Product not found 🤷‍♂️</p>;
 
   return (
     <div style={{ padding: "20px" }}>
