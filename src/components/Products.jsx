@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAppContext } from '../contexts/AppContext';
 
 const Products = () => {
@@ -8,7 +7,6 @@ const Products = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
-    const navigate = useNavigate();
 
     const categories = ['electronics', 'jewelery', "men's clothing", "women's clothing"];
     const brands = ['sony', 'microsoft', 'logitech g', 'song', 'urbanista', 'xiaomi', 'boat', 'samsung', 'amkette'];
@@ -18,14 +16,12 @@ const Products = () => {
         brand: brands[index % brands.length]
     }));
 
-    // Set filtered products when context products change
     useEffect(() => {
         if (products.length > 0) {
             setFilteredProducts(productsWithBrands);
         }
-    }, [products,productsWithBrands]);
+    }, [products]);
 
-    // Filter products when categories or brands change
     useEffect(() => {
         let filtered = productsWithBrands;
 
@@ -42,7 +38,7 @@ const Products = () => {
         }
 
         setFilteredProducts(filtered);
-    }, [selectedCategories, selectedBrands, productsWithBrands]);
+    }, [selectedCategories, selectedBrands]);
 
     const handleCategoryChange = (category) => {
         setSelectedCategories(prev =>
@@ -60,9 +56,6 @@ const Products = () => {
         );
     };
 
-
-
-    // Skeleton Loader Component
     const SkeletonCard = () => (
         <div className="border border-gray-500 rounded-lg p-3 animate-pulse">
             <div className="h-40 w-full bg-gray-700 rounded mb-2"></div>
@@ -82,7 +75,6 @@ const Products = () => {
 
     return (
         <div className="min-h-screen bg-black text-white md:flex gap-3 max-w-7xl mx-auto p-4">
-            {/* Left bar for filters - Made sticky */}
             <div className="lg:w-[20%] md:w-[30%] border border-gray-500 rounded-lg md:sticky bg-black top-4 h-fit">
                 <div className="p-3">
                     <h2 className="font-bold text-xl">Category</h2>
@@ -119,31 +111,22 @@ const Products = () => {
                 </div>
             </div>
 
-            {/* Right side bar for products */}
             <div className="md:w-[80%] md:mt-0 mt-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-                {loading &&
-                    Array(6)
-                        .fill()
-                        .map((_, index) => <SkeletonCard key={index} />)}
+                {loading && Array(6).fill().map((_, index) => <SkeletonCard key={index} />)}
                 {contextError && <p className="text-red-500">{contextError}</p>}
 
-                {!loading &&
-                    !contextError &&
-                    filteredProducts.map(product => (
-                        <div
-                            key={product.id}
-                            className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
-                         
-                        >
+                {!loading && !contextError && filteredProducts.map(product => (
+                    <div
+                        key={product.id}
+                        className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
+                    >
+                        <Link to={`/products/product/${product.id}`} className="block text-white no-underline">
                             {product.image && (
-                                <Link to={`/products/${product.id}`}>
                                 <img
                                     src={product.image}
                                     alt={product.title || 'Product'}
-                                    className="h-40 w-full object-contain mb-2 transition-transform duration-300 ease-in-out hover:scale-105 "
-                                    
+                                    className="h-40 w-full object-contain mb-2 transition-transform duration-300 ease-in-out hover:scale-105"
                                 />
-                                </Link>
                             )}
                             <div className="mt-5 space-y-2 pb-7">
                                 <div className="flex justify-between">
@@ -158,8 +141,9 @@ const Products = () => {
                                     <p className="text-sm text-gray-400">{product.brand}</p>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        </Link>
+                    </div>
+                ))}
             </div>
         </div>
     );
