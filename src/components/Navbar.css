@@ -1,69 +1,59 @@
-/* === NAVBAR CONTAINER === */
 .navbar {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 50px;
-  background: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 15px 40px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   font-family: 'Poppins', sans-serif;
-  position: relative;
+  flex-wrap: wrap;
 }
 
-/* === LOGO SECTION === */
-.nav-logo {
+/* Logo */
+.nav-left {
   display: flex;
   align-items: center;
-  font-size: 24px;
-  color: #1e3a8a;
-  flex-shrink: 0;
+  gap: 10px;
 }
 
-.nav-logo img {
+.logo-img {
   width: 45px;
   height: 45px;
-  object-fit: cover;
   border-radius: 50%;
   border: 2px solid #3b82f6;
-  margin-right: 10px;
 }
 
-/* === HAMBURGER ICON === */
-.hamburger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
+.logo-text {
+  font-size: 20px;
+  color: #1e3a8a;
 }
 
-/* === NAVIGATION MENU === */
-.nav-menu {
+/* Navigation */
+.nav-links {
   display: flex;
   list-style: none;
   gap: 20px;
-  font-weight: 500;
-  margin: 0;
 }
 
-.nav-menu li a {
-  color: #374151;
+.nav-links li a {
   text-decoration: none;
+  color: #374151;
+  font-weight: 500;
   padding: 6px 12px;
   border-radius: 20px;
   transition: 0.3s ease;
 }
 
-.nav-menu li a:hover {
+.nav-links li a:hover {
   background-color: #e0e7ff;
   color: #2563eb;
 }
 
-/* === SEARCH SECTION === */
+/* Search */
 .nav-search {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
 }
 
 .nav-search select,
@@ -72,18 +62,10 @@
   padding: 8px 12px;
   border-radius: 20px;
   border: 1px solid #ccc;
-  font-size: 14px;
-  transition: 0.3s ease;
 }
 
 .nav-search input {
-  width: 200px;
-}
-
-.nav-search input:focus,
-.nav-search select:focus {
-  border-color: #3b82f6;
-  outline: none;
+  width: 150px;
 }
 
 .nav-search button {
@@ -97,62 +79,122 @@
   background-color: #2563eb;
 }
 
-/* === ICON SECTION (Login, Wishlist, Cart) === */
-.nav-icons {
+/* Right icons */
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding-right: 40px; /* 👈 Adds right space */
+  gap: 15px;
 }
 
-.nav-icons a {
-  font-size: 14px;
+.nav-right a {
+  font-size: 18px;
   color: #374151;
   text-decoration: none;
-  padding: 6px 12px;
+}
+
+/* Profile */
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #fff;
+  width: 200px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.profile-dropdown-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #3b82f6;
+}
+
+.profile-dropdown p {
+  margin: 5px 0 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.profile-btn,
+.logout-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 8px;
   border-radius: 20px;
-  transition: 0.3s ease;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
 }
 
-.nav-icons a:hover {
-  background-color: #e0e7ff;
-  color: #2563eb;
+.profile-btn:hover,
+.logout-btn:hover {
+  background-color: #2563eb;
 }
 
-/* === RESPONSIVE STYLES === */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 15px 25px;
-    z-index: 1000;
-  }
-
-  .nav-menu.open {
-    display: flex;
-  }
-
   .hamburger {
     display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-search {
     flex: 1 1 100%;
     justify-content: center;
-    margin-top: 15px;
+    margin: 10px 0;
   }
 
-  .nav-icons {
+  .nav-right {
     flex: 1 1 100%;
     justify-content: center;
     margin-top: 10px;
-    padding-left: 0;
   }
 }
