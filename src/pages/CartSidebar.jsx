@@ -1,8 +1,9 @@
 import React from "react";
 import { useAppContext } from "../contexts/AppContext";
-import CartItem from "./CartItem";
-import RelatedItemCard from "./RelatedItemCard";
-import "./CartSidebar.css";
+import CartItem from "../components/CartItem";
+import RelatedItemCard from "../components/RelatedItem";
+import "../components/CartSidebar.css"; // Keep this if your CSS is here
+
 
 const CartSidebar = () => {
     const { isCartOpen, toggleCart, cartItems, relatedItems } = useAppContext();
@@ -13,15 +14,6 @@ const CartSidebar = () => {
 
     return (
         <div className={`cart-sidebar ${isCartOpen ? "open" : ""}`}>
-            <div className="related-section">
-                <h3>Related Items</h3>
-                <div className="related-items">
-                    {relatedItems.map((item) => (
-                        <RelatedItemCard key={item.id} {...item} />
-                    ))}
-                </div>
-            </div>
-
             <div className="cart-main">
                 <div className="cart-header">
                     <h2>My cart</h2>
@@ -29,10 +21,8 @@ const CartSidebar = () => {
                 </div>
 
                 <div className="cart-items">
-                    {/* {cartItems.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))} */}
-          {cartItems.map((item) => (
+            
+                    {cartItems.map((item) => (
                         <CartItem
                             key={item.id}
                             id={item.id}
@@ -43,8 +33,16 @@ const CartSidebar = () => {
                             weight={item.weight}
                         />
                     ))}
-
                 </div>
+                
+                    <div className="related-section">
+                <h3>Related Items</h3>
+                <div className="related-items">
+                    {relatedItems.map((item) => (
+                        <RelatedItemCard key={item.id} {...item} />
+                    ))}
+                </div>
+            </div>
 
                 <div className="cart-summary">
                     <div className="summary-row">
@@ -61,7 +59,7 @@ const CartSidebar = () => {
                     </div>
                     <div className="summary-buttons">
                         <button className="view-cart-btn">View Cart</button>
-                        <button className="checkout-btn">Checkout</button>
+                        <button className="checkout-btn">Buy</button>
                     </div>
                 </div>
             </div>

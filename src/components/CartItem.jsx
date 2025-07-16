@@ -10,9 +10,6 @@ const CartItem = ({ id, name, price, quantity, image, weight }) => {
             <img src={image} alt={name} className="cart-item-image" />
             <div className="cart-item-details">
                 <h4>{name}</h4>
-                {/* <p>
-          <strong>${price.toFixed(2)}</strong> x {weight}
-        </p> */}
                 <p>
                     <strong>${(price ?? 0).toFixed(2)}</strong> x {weight}
                 </p>

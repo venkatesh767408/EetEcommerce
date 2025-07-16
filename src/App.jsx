@@ -1,7 +1,7 @@
 import React from "react";
 import CartItem from "./components/CartItem";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import CartSidebar from "./components/CartSidebar";
+import CartSidebar from "./pages/CartSidebar";
 
 
 const App = () => {
