@@ -7,7 +7,6 @@ const Products = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedBrands, setSelectedBrands] = useState([]);
-
     const categories = ['gaming', 'audio', "mobile"];
     const brands = ['sony', 'microsoft', 'logitech g', 'song', 'urbanista', 'xiaomi', 'boat', 'samsung', 'amkette'];
 
@@ -121,10 +120,13 @@ const Products = () => {
                         className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
                     >
                         <Link to={`/products/${product.id}`} className="block text-white no-underline">
+                          
                             {product.image && (
                                 <img
                                     src={product.image}
-                                    alt={product.title || 'Product'}
+
+
+                                    alt={product.title}
                                     className="h-40 w-full object-contain mb-2 transition-transform duration-300 ease-in-out hover:scale-105"
                                 />
                             )}

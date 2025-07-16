@@ -14,6 +14,7 @@ const Auth = () => {
     password: "",
     otp: "",
   });
+  
 
   const [message, setMessage] = useState({ type: "", text: "" });
 
@@ -41,6 +42,7 @@ const Auth = () => {
         });
         setMessage({ type: "success", text: res.data.message });
         setView("login");
+        
       }
 
       if (view === "login") {
@@ -49,7 +51,7 @@ const Auth = () => {
           password: form.password,
         });
         setMessage({ type: "success", text: res.data.message });
-         localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("login", JSON.stringify(true));
         navigate('/home');
       }
 
@@ -67,6 +69,7 @@ const Auth = () => {
           otp: form.otp,
         });
         setMessage({ type: "success", text: res.data.message });
+        localStorage.setItem("login", JSON.stringify(true));
         navigate('/home');
       }
     } catch (err) {
