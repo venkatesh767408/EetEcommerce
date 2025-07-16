@@ -57,25 +57,25 @@ const Products = () => {
     };
 
     const SkeletonCard = () => (
-        <div className="border border-gray-500 rounded-lg p-3 animate-pulse">
-            <div className="h-40 w-full bg-gray-700 rounded mb-2"></div>
+        <div className="border border-gray-300 rounded-lg p-3 animate-pulse">
+            <div className="h-40 w-full bg-gray-200 rounded mb-2"></div>
             <div className="mt-5 space-y-2 pb-7">
                 <div className="flex justify-between">
-                    <div className="h-3 w-24 bg-gray-700 rounded"></div>
-                    <div className="h-3 w-16 bg-gray-700 rounded"></div>
+                    <div className="h-3 w-24 bg-gray-200 rounded"></div>
+                    <div className="h-3 w-16 bg-gray-200 rounded"></div>
                 </div>
-                <div className="h-4 w-3/4 bg-gray-700 rounded"></div>
+                <div className="h-4 w-3/4 bg-gray-200 rounded"></div>
                 <div className="flex justify-between absolute bottom-0 w-[calc(100%-24px)]">
-                    <div className="h-5 w-16 bg-gray-700 rounded"></div>
-                    <div className="h-4 w-20 bg-gray-700 rounded"></div>
+                    <div className="h-5 w-16 bg-gray-200 rounded"></div>
+                    <div className="h-4 w-20 bg-gray-200 rounded"></div>
                 </div>
             </div>
         </div>
     );
 
     return (
-        <div className="min-h-screen bg-black text-white md:flex gap-3 max-w-7xl mx-auto p-4">
-            <div className="lg:w-[20%] md:w-[30%] border border-gray-500 rounded-lg md:sticky bg-black top-4 h-fit">
+        <div className="min-h-screen bg-white text-black md:flex gap-3 p-4">
+            <div className="lg:w-[20%] md:w-[30%] border border-gray-300 rounded-lg md:sticky bg-white top-4 h-fit">
                 <div className="p-3">
                     <h2 className="font-bold text-xl">Category</h2>
                     <div className="pl-5 mt-3 space-y-2">
@@ -83,7 +83,7 @@ const Products = () => {
                             <label key={cat} className="flex items-center gap-2">
                                 <input
                                     type="checkbox"
-                                    className="accent-green-500 rounded-xl"
+                                    className="accent-yellow-400 rounded-xl"
                                     checked={selectedCategories.includes(cat)}
                                     onChange={() => handleCategoryChange(cat)}
                                 />
@@ -100,7 +100,7 @@ const Products = () => {
                             <label key={brand} className="flex items-center gap-2">
                                 <input
                                     type="checkbox"
-                                    className="accent-green-500 rounded-xl"
+                                    className="accent-yellow-400 rounded-xl"
                                     checked={selectedBrands.includes(brand)}
                                     onChange={() => handleBrandChange(brand)}
                                 />
@@ -118,9 +118,9 @@ const Products = () => {
                 {!loading && !contextError && filteredProducts.map(product => (
                     <div
                         key={product.id}
-                        className="border border-gray-500 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-900 transition-colors"
+                        className="border border-gray-300 rounded-lg p-3 h-fit relative cursor-pointer hover:bg-gray-100 transition-colors"
                     >
-                        <Link to={`/products/${product.id}`} className="block text-white no-underline">
+                        <Link to={`/products/${product.id}`} className="block text-black no-underline">
                             {product.image && (
                                 <img
                                     src={product.image}
@@ -138,7 +138,7 @@ const Products = () => {
                                 </p>
                                 <div className="flex justify-between absolute bottom-0 w-[calc(100%-24px)]">
                                     <p className="font-bold text-[20px]">$ {product.price}</p>
-                                    <p className="text-sm text-gray-400">{product.brand}</p>
+                                    <p className="text-sm text-gray-600">{product.brand}</p>
                                 </div>
                             </div>
                         </Link>
