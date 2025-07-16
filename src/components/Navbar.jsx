@@ -41,6 +41,9 @@ const Navbar = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const handlelogin=()=>{
+    localStorage.removeItem('login');
+  }
 
   return (
     <nav className="navbar">
@@ -77,7 +80,7 @@ const Navbar = () => {
 
       {/* Icons */}
       <div className="nav-icons">
-        <Link to="/login">👤 Login</Link>
+        <Link to="/" onClick={handlelogin}>👤 Logout</Link>
         <Link to="/wishlist">⭐ Wishlist</Link>
         <Link to="/cart">🛒 Cart</Link>
       </div>
