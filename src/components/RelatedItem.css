@@ -1,0 +1,60 @@
+.related-card {
+  display: flex;
+  gap: 1rem;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.related-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.related-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.related-category {
+  font-size: 12px;
+  color: #888;
+}
+
+.related-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.related-price {
+  font-size: 14px;
+  color: #000;
+}
+
+.related-price span {
+  font-size: 12px;
+  color: #888;
+  margin-left: 5px;
+}
+
+.related-volume {
+  font-size: 12px;
+  color: #555;
+}
+
+.add-related-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+}

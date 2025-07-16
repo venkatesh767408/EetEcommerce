@@ -1,3 +1,6 @@
+
+
+
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -13,6 +16,9 @@ import Offer from './pages/Offerspage';
 import ProductDetails from './compents/Products/ProductDetails';
 import ProtectedRoute from './components/middleware/ProtectedRoute';
 const Products = lazy(() => import('./components/Products'));
+import CartItem from "./components/CartItem";
+
+import CartSidebar from "./pages/CartSidebar";
 
 const AppWrapper = () => {
   const location = useLocation();
@@ -28,6 +34,7 @@ const AppWrapper = () => {
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
           <Route path="/about" element={<ProtectedRoute><AboutUs /></ProtectedRoute>} />
+           <Route path="/cart" element={<ProtectedRoute><CartSidebar/></ProtectRoute>} />
           <Route path="/products/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
           <Route path="/offers" element={<ProtectedRoute><Offer /></ProtectedRoute>} />
           <Route path="/products/:id" element={<ProtectedRoute><ProductDetails /></ProtectedRoute>} />
