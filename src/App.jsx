@@ -1,10 +1,12 @@
 
-// export default App;
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AboutUs from './components/AboutUsPage/AboutUs';
+
+import Login from './pages/Login';
 import './App.css';
 
 
@@ -21,11 +23,12 @@ import ProductDetails from './compents/Products/ProductDetails';
 const Products = lazy(() => import('./components/Products'));
 
 
+
 const App = () => {
   return (
     <BrowserRouter>
 
-      <Navbar />
+ 
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,6 +41,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/products" element={<Products />} />
+           <Route path="/about" element={<AboutUs />} />
 
           <Route path="/products/product/:id" element={<Product />} />
           <Route path="/offers" element={<Offer />} />
@@ -47,7 +51,8 @@ const App = () => {
 
         </Routes>
       </Suspense>
-      <Footer />
+   
+
     </BrowserRouter>
   );
 };
