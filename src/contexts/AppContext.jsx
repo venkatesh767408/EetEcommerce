@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -7,7 +8,9 @@ export const useAppContext = () => useContext(AppContext);
 export const AppProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
   const [isCartOpen, setIsCartOpen] = useState(true);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -15,8 +18,13 @@ export const AppProvider = ({ children }) => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
+
         const res = await axios.get("https://fakestoreapi.com/products");
         setProducts(res.data);
+
+        const res = await axios.get("https://fakestoreapi.in/api/products");
+        setProducts(res.data.products);
+
       } catch (err) {
         console.error("Failed to fetch products", err);
         setError("Failed to fetch products");
@@ -45,6 +53,7 @@ export const AppProvider = ({ children }) => {
             : item
         );
       } else {
+
         return [...prevCart, { ...formattedProduct, quantity: 1 }];
       }
     });
@@ -89,6 +98,14 @@ export const AppProvider = ({ children }) => {
     loading,
     error,
   };
+
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  const value = { products, cart, addToCart, loading, error };
+
 
   return (
     <AppContext.Provider value={value}>

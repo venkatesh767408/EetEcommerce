@@ -1,0 +1,105 @@
+.auth-wrapper {
+  background: #0f1115;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.auth-container {
+  background-color: #1e1e2f;
+  border: 1px solid #2c2c3b;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #e0e0e0;
+  transition: 0.3s ease-in-out;
+}
+
+/* Heading */
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+/* Form */
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container input {
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #3b3b4f;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #2a2a3d;
+  color: #f1f1f1;
+}
+
+.auth-container input:focus {
+  border-color: #4f90ff;
+  outline: none;
+  background-color: #33334d;
+}
+
+.auth-container input::placeholder {
+  color: #aaa;
+}
+
+.auth-container button {
+  padding: 12px;
+  background-color: #4f90ff;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.auth-container button:hover {
+  background-color: #367cff;
+}
+
+/* Toggle Link */
+.auth-container .auth-toggle {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #4f90ff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Messages */
+.auth-container .success-msg,
+.auth-container .error-msg {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.auth-container .success-msg {
+  background-color: #264d3c;
+  color: #45d39f;
+  border: 1px solid #3e856a;
+}
+
+.auth-container .error-msg {
+  background-color: #4b2d2d;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+/* checking comment for github rules set */
